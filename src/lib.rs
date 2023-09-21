@@ -31,8 +31,8 @@ macro_rules! main {
         }
 
         #[no_mangle]
+        #[cfg(target_os = "wasi")]
         pub extern "C" fn _initialize() {
-            #[cfg(target_os = "wasi")]
             unsafe {
                 __wasm_call_ctors();
             }
